@@ -1,0 +1,32 @@
+<br/>
+
+<div>
+  Host ID: {{hostId}}
+</div>
+
+<br/>
+
+<div *ngIf="host">
+
+  <div>
+  Host name: {{host.name}}
+  <br/>
+
+  Virtual Machine IDs: {{host.virtualMachineIds}}
+  <br/>
+
+  </div>
+  <br/>
+    <div *ngFor="let vm of vms$ | async">
+      <div *ngIf="vm.hostId == host.hostId">
+        <br/>
+        Virtual Machine Name: {{vm.name}}
+        <br/>
+
+        Virtual Machine ID: {{vm.virtualMachineId}}
+        <br/>
+        
+        <button (click)="onNavigate(vm)">Details</button>
+      </div>
+  </div>
+  </div>

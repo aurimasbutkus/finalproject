@@ -1,0 +1,25 @@
+<div>
+  Virtual Machine ID: {{vmId}}
+  <br/>
+
+</div>
+
+<div *ngIf="vm">
+
+  Virtual Machine Host ID: {{vm.hostId}}
+  <br/>
+
+  Virtual Machine Name: {{vm.name}}
+  <br/>
+
+  State: {{vm.state}}
+  <br/>
+
+  Virtual Processor Count: {{vm.virtualProcessorCount}}
+  <br/>
+
+  <div *ngIf="vm.virtualMemory.unit == 0">Virtual Memory: {{vm.virtualMemory.value}} bytes</div>
+  <div *ngIf="vm.virtualMemory.unit == 1">Virtual Memory: {{vm.virtualMemory.value}} KB</div>
+  <div *ngIf="vm.virtualMemory.unit == 2">Virtual Memory: {{vm.virtualMemory.value}} MB</div>
+  <div *ngIf="vm.virtualMemory.unit == 3">Virtual Memory: {{vm.virtualMemory.value}} GB</div>
+</div>

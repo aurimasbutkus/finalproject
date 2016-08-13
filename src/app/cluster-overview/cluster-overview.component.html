@@ -1,0 +1,32 @@
+<br/>
+
+<div>
+  Cluster ID: {{clusterId}}
+</div>
+
+<br/>
+
+<div *ngIf="cluster">
+
+  <div>
+  Cluster name: {{cluster.name}}
+  </div>
+
+  <div>
+  Host IDs: {{cluster.hostIds}}
+  <br/>
+
+  </div>
+  <div *ngFor="let host of hosts$ | async">
+      <div *ngIf="host.clusterId == cluster.clusterId">
+        <br/>
+        Host Name: {{host.name}}
+        <br/>
+
+        Host ID: {{host.hostId}}
+        <br/>
+
+        <button (click)="onNavigate(host)">Details</button>
+      </div>
+  </div>
+</div>
